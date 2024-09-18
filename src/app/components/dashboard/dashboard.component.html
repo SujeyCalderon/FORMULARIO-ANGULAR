@@ -1,0 +1,47 @@
+<div class="grid-container">
+  <!-- Card del Formulario -->
+  <mat-card class="dashboard-card">
+    <mat-card-title>FORMULARIO DE ESTUDIANTES</mat-card-title>
+    <mat-card-content class="dashboard-card-content">
+      <form (ngSubmit)="agregarEstudiante()">
+        <label for="text">Ingrese el ID</label>
+        <input type="number" placeholder="Ingrese el ID" [(ngModel)]="nuevoEstudiante.id" name="id" required>
+
+        <label for="text">Ingrese el Nombre</label>
+        <input type="text" placeholder="Ingrese el nombre" [(ngModel)]="nuevoEstudiante.name" name="name" required>
+
+        <label for="text">Ingrese las asignaturas</label>
+        <input type="text" placeholder="Ingrese las asignaturas separadas por comas" [(ngModel)]="asignaturasString" name="asignatures" required>
+
+        <button type="submit">Agregar Estudiante</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Card de la Tabla de Estudiantes -->
+  <mat-card class="dashboard-card">
+    <mat-card-header>
+      <mat-card-title>
+        ESTUDIANTES REGISTRADOS
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="dashboard-card-content">
+      <table>
+        @for (elementStudent of studentsArray; track elementStudent) {
+          <tr>
+            <td>
+              {{elementStudent.id}}
+            </td>
+            <td>
+              {{elementStudent.name}}
+            </td>
+            <td>
+              <button mat-button (click)="deleteStudent(elementStudent.id)">Delete</button>
+            </td>
+          </tr>
+        }
+      </table>
+    </mat-card-content>
+  </mat-card>
+
+</div>

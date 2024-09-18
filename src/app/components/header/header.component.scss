@@ -1,0 +1,51 @@
+.header {
+  background-color:gray; 
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  padding: 0 20px;
+  height: 80px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  color: #fff;
+  flex-direction: column; /* Para que el menú y el título estén en línea vertical en pantallas pequeñas */
+}
+
+.menu-hamburguesa {
+  position: absolute;
+  left: 20px; /* Para alinear el ícono a la izquierda */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+h1 {
+  font-size: 24px;
+  text-align: center; /* Centrar el texto */
+}
+
+.menu-opciones {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  width: 200px;
+}
+
+.menu-opciones.show {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .header {
+    justify-content: space-between; /* Ajusta para pantallas pequeñas */
+  }
+
+  h1 {
+    margin: 0 auto;
+  }
+}
